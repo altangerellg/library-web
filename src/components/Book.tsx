@@ -12,7 +12,7 @@ const Book: FC<BookProps> = ({
     coverUrl,
     loves,
     description,
-    type,
+    type="card",
     ...props
 }) => {
     if(description){
@@ -54,9 +54,9 @@ const Book: FC<BookProps> = ({
                 <div className="flex justify-center items-center lg:w-2/6 my-2 md:w-1/4 w-full">
                     <img alt={name} src={"/public/uploads/" + coverUrl} style={{ width: "150px" }} />
                 </div>
-                <div className=" flex justify-center flex-col relative grow bg-white ml-5 py-2 z-10">
+                <div className=" flex justify-center flex-col relative grow bg-white ml-5 py-2 z-10 md:w-1/2">
                     <p className="uppercase text-accent h-auto font-light text-xs">EPUB</p>
-                    <p className="text-primary mt-2 text-lg font-semibold hover:cursor-pointer truncate ...">{name}</p>
+                    <p className="text-primary mt-2 text-lg font-semibold hover:cursor-pointer truncate ... w-full">{name}</p>
                     <p className="hover:text-accent text-gray-500 mt-2 text-sm truncate ... cursor-pointer  ">{author}</p>
                     <div className=" max-w-full mt-3">
                         <p className="text-xs flex flex-wrap">{description}</p>
