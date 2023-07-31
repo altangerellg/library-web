@@ -68,4 +68,4 @@ const Sidebar: FC<LoginSidebarProps> = ({ onHide, show, ...props }) => {
     );
 };
 
-export default LoginSidebarProps;
+export default Sidebar;

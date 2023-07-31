@@ -2,15 +2,15 @@
 import React, { FC, useState } from "react";
 import { HiPhone, HiUser } from "react-icons/hi";
 import { BsBag } from "react-icons/bs";
-import Sidebar from "@library/components/Sidebar";
+import LoginSidebar from "@library/components/LoginSidebar";
 interface TopbarProps {
     [key: string]: any;
 }
 
 const Topbar: FC = (props: TopbarProps) => {
-    const [sidebar, setSidebar] = useState(false);
+    const [loginSidebar, setLoginSidebar] = useState(false);
     const toggleSidebar = () => {
-        setSidebar((s) => !s);
+        setLoginSidebar((s) => !s);
     };
     return (
         <div className="lg:flex hidden w-screen py-4 px-12 justify-between items-center border-b-[1px]">
@@ -33,7 +33,7 @@ const Topbar: FC = (props: TopbarProps) => {
                 />
                 <BsBag className="mr-2 text-xl" />
             </div>
-            <Sidebar onHide={() => setSidebar((s) => !s)} show={sidebar} />
+            <LoginSidebar onHide={() => setLoginSidebar((s) => !s)} show={loginSidebar} />
         </div>
     );
 };
