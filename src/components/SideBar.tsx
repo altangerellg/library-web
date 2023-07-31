@@ -13,7 +13,7 @@ const SideBar: FC<SideBarProps> = (props) => {
 
     const { onChangeFilter } = useFilter();
     return (
-        <div className="flex flex-col w-[320px]">
+        <div className="flex flex-col lg:w-80 w-screen px-3 mb-4">
             <DropDown title="Ангилал">
                 <ul>
                     {categories?.map((category: ICategory, index: number) => {

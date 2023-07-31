@@ -14,6 +14,7 @@ const SearchList: FC<any> = (props) => {
     const [page, setPage] = useState<number>(0);
     const [size, setSize] = useState<number>(20);
     const [totalPage, setTotalPage] = useState<number>(1);
+    const [type, setType] = useState("card");
 
     const fetchBooks = async () => {
         try {
@@ -29,19 +30,23 @@ const SearchList: FC<any> = (props) => {
     useEffect(() => {
         fetchBooks();
         //eslint-disable-next-line
-    }, [page, size, filter]);
+    }, [page, size, filter,type]);
 
     const onChangeSize = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setSize(parseInt(event.target.value));
     };
+
+    const onChangeType = (bookType:string) => {
+        setType(bookType);
+    }
     return (
         <>
-            <SortControlBar books={books.length} size={size} page={page} onChangeSize={onChangeSize} />
+            <SortControlBar books={books.length} size={size} page={page} onChangeSize={onChangeSize} onChangeType = {onChangeType} />
             <div className="flex flex-col w-full mt-5">
                 <div>
-                    <div className="grid grid-cols-2 lg:grid-cols-4">
+                    <div className={type === "card" ? "grid grid-cols-2 lg:grid-cols-4" : "grid grid-cols-1 lg:grid-cols-1"} >
                         {books.map((e: IBook, index: number) => {
-                            return <Book {...e} key={index} />;
+                            return <Book {...e} key={index} type={type} />;
                         })}
                     </div>
                 </div>

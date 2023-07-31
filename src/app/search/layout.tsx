@@ -6,9 +6,9 @@ import { SearchProvider } from "@library/context/SearchContext";
 const searchLayout: FC<any> = ({ children, ...props }) => {
     return (
         <SearchProvider>
-            <div className="flex py-12 px-32 justify-between w-screen">
+            <div className="flex py-12  w-screen flex-col lg:px-32 lg:flex-row">
                 <SideBar />
-                <div className="flex flex-col grow ml-5">{children}</div>
+                <div className="flex flex-col w-full lg:pl-5 px-1">{children}</div>
             </div>
         </SearchProvider>
     );
