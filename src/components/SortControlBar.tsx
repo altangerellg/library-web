@@ -6,9 +6,11 @@ interface SortControlBarProps {
     size:number;
     onChangeSize: (event: React.ChangeEvent<HTMLSelectElement>) => void;
     onChangeType: (bookType: string) => void;
+    onChangeSort: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+ 
 }
 
-const SortControlBar: FC<SortControlBarProps> = ({books,page,size, onChangeSize,onChangeType}) => {
+const SortControlBar: FC<SortControlBarProps> = ({books,page,size, onChangeSize,onChangeType, onChangeSort}) => {
     const [cardType, setCardType] = useState(true);
     const onClickedButton = (isCard: boolean) => {
         setCardType(isCard);
@@ -21,14 +23,12 @@ const SortControlBar: FC<SortControlBarProps> = ({books,page,size, onChangeSize,
             <div className="flex items-center md:justify-end justify-between w-full flex-col md:flex-row md:w-3/5">
                 <form className="text-xl mb-3 md:mb-0">
                     <select name="sort"
+                        onChange={onChangeSort}
                         className="border-b border-gray-300 text-gray-900 text-sm rounded-sm block w-full p-2.5 outline-0"
                     >
-                        <option selected className="">
-                            А-Я
-                        </option>
-                        <option value="a-z">Нэрээр</option>
-                        <option value="popularity">Сүүлд нэмэгдсэн</option>
-                        <option value="latest">Их үзэлттэй</option>
+                        <option value="name">Нэрээр</option>
+                        <option value="publicationDate">Сүүлд нэмэгдсэн</option>
+                        <option value="totalViews">Их үзэлттэй</option>
                     </select>
                 </form>
                 <form className="lg:pl-5 lg:block hidden" >

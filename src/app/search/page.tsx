@@ -15,11 +15,12 @@ const SearchList: FC<any> = (props) => {
     const [size, setSize] = useState<number>(20);
     const [totalPage, setTotalPage] = useState<number>(1);
     const [type, setType] = useState("card");
-
+    const [sort,setSort] = useState("name")
+    const [order,setOrder] = useState("asc");
     const fetchBooks = async () => {
         try {
             const response = await axios.post("/api/book/find", filter, {
-                params: { page, size },
+                params: { page, size,sort,order},
             });
             setBooks(response.data.content);
             setTotalPage(response.data.totalPage);
@@ -30,7 +31,7 @@ const SearchList: FC<any> = (props) => {
     useEffect(() => {
         fetchBooks();
         //eslint-disable-next-line
-    }, [page, size, filter,type]);
+    }, [page, size, filter,type,sort]);
 
     const onChangeSize = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setSize(parseInt(event.target.value));
@@ -39,9 +40,19 @@ const SearchList: FC<any> = (props) => {
     const onChangeType = (bookType:string) => {
         setType(bookType);
     }
+    const onChangePage = (pageNumber:number) => {
+        setPage(pageNumber);
+    }
+    const onChangeSort = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        if(event.target.value === "publicationDate") setOrder("desc")
+        if(event.target.value === "name") setOrder("asc")
+        if(event.target.value === "totalViews") setOrder("desc");
+        setSort(event.target.value);
+    }
+    
     return (
         <>
-            <SortControlBar books={books.length} size={size} page={page} onChangeSize={onChangeSize} onChangeType = {onChangeType} />
+            <SortControlBar books={books.length} size={size} page={page} onChangeSize={onChangeSize} onChangeType = {onChangeType} onChangeSort = {onChangeSort}/>
             <div className="flex flex-col w-full mt-5">
                 <div>
                     <div className={type === "card" ? "grid grid-cols-2 lg:grid-cols-4" : "grid grid-cols-1 lg:grid-cols-1"} >
@@ -50,7 +61,7 @@ const SearchList: FC<any> = (props) => {
                         })}
                     </div>
                 </div>
-                <Pagination />
+                <Pagination totalPage={totalPage} page={page+1} onChangePage={onChangePage}/>
             </div>
         </>
     );
