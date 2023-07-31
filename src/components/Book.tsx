@@ -11,44 +11,68 @@ const Book: FC<BookProps> = ({
     publicationDate,
     coverUrl,
     loves,
+    description,
+    type,
     ...props
 }) => {
-    return (
-        <div
-            className="flex flex-col justify-between border p-4 m-0 hover:shadow-lg cursor-pointer"
-            {...props}
-        >
-            <div className="flex justify-center items-center w-full">
-                <img
-                    alt={name}
-                    src={"/public/uploads/" + coverUrl}
-                    style={{ width: "150px" }}
-                />
+    if(description){
+        description = description.substring(0,120) + "...";
+    }
+    if (type === "card") {
+        return (
+            <div
+                className="relative group flex flex-col justify-between border p-4 m-0 hover:shadow-lg hover:border-gray-900"
+                {...props}
+            >
+                <div className="flex justify-center items-center w-full mt-2">
+                    <img alt={name} src={"/public/uploads/" + coverUrl} style={{ width: "150px" }} />
+                </div>
+                <div className="flex flex-col">
+                    <div className="relative lg:group-hover:-translate-y-10 ease-in duration-200 bottom-0 bg-white py-2 z-10">
+                        <p className="uppercase text-accent h-auto font-light text-xs">EPUB</p>
+                        <p className="text-primary mt-4 font-semibold hover:cursor-pointer truncate ...">{name}</p>
+                        <p className="hover:text-accent text-gray-500 text-sm mt-3 truncate ... cursor-pointer">{author}</p>
+                        <p className="text-primary my-2 text-xs font-light ">{loves} хүнд таалагдсан</p>
+                    </div>
+                    <div className="flex relative lg:-mt-8 justify-start items-center lg:absolute lg:bottom-5 lg:z-0 ">
+                        <IconButton className="mr-2">
+                            <AiOutlineFolderAdd className="text-xl cursor-pointer" />
+                        </IconButton>
+                        <IconButton>
+                            <AiOutlineHeart className="text-xl cursor-pointer" />
+                        </IconButton>
+                    </div>
+                </div>
             </div>
-            <motion.div
-                initial={{
-                    y: 0,
-                }}
-                transition={{ duration: 0.35, type: "spring" }}
-                whileHover={{ y: -40 }}
-                className="pt-4 z-[999] bg-white"
+        );
+    } else {
+        return (
+            <div
+                className="relative group flex justify-between border p-4 m-0 hover:shadow-lg hover:border-gray-900 flex-col md:flex-row"
+                {...props}
             >
-                <p className="uppercase text-accent h-auto font-light text-xs">EPUB</p>
-                <p className="text-primary mt-4 font-semibold">{name}</p>
-                <p>{author}</p>
-                <p className="text-primary my-2 text-xs font-light">{loves} хүнд таалагдсан</p>
-            </motion.div>
-            <motion.div
-                className="flex z-0 -mt-8 justify-start items-center"
-            >
-                <IconButton className="mr-2">
-                    <AiOutlineFolderAdd className="text-xl" />
-                </IconButton>
-                <IconButton>
-                    <AiOutlineHeart className="text-xl" />
-                </IconButton>
-            </motion.div>
-        </div>
-    );
+                <div className="flex justify-center items-center lg:w-2/6 my-2 md:w-1/4 w-full">
+                    <img alt={name} src={"/public/uploads/" + coverUrl} style={{ width: "150px" }} />
+                </div>
+                <div className=" flex justify-center flex-col relative grow bg-white ml-5 py-2 z-10">
+                    <p className="uppercase text-accent h-auto font-light text-xs">EPUB</p>
+                    <p className="text-primary mt-2 text-lg font-semibold hover:cursor-pointer truncate ...">{name}</p>
+                    <p className="hover:text-accent text-gray-500 mt-2 text-sm truncate ... cursor-pointer  ">{author}</p>
+                    <div className=" max-w-full mt-3">
+                        <p className="text-xs flex flex-wrap">{description}</p>
+                    </div>
+                    <p className="text-primary my-2 text-xs font-light ">{loves} хүнд таалагдсан</p>
+                </div>
+                <div className="flex relative justify-start items-center lg:w-1/5 w-1/4  ml-5">
+                    <IconButton className="mr-2">
+                        <AiOutlineFolderAdd className="text-xl cursor-pointer" />
+                    </IconButton>
+                    <IconButton>
+                        <AiOutlineHeart className="text-xl cursor-pointer" />
+                    </IconButton>
+                </div>
+            </div>
+        );
+    }
 };
 export default Book;

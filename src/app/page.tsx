@@ -1,4 +1,4 @@
-import Book from "@library/components/Book";
+import Book from "@library/components/_Book";
 import IBook from "@library/types/IBook";
 import Image from "next/image";
 import Header from "@library/layout/Header";
