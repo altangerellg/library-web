@@ -3,6 +3,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Header from "@library/layout/Header";
 import Footer from "@library/layout/Footer";
+import Bottombar from "@library/layout/Bottombar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({
                 <Header />
                 {children}
                 <Footer />
+                <Bottombar/>
             </body>
         </html>
     );
