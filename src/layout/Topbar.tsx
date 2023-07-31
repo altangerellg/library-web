@@ -1,12 +1,9 @@
 "use client";
 import React, { FC } from "react";
 import {
-    HiHeart,
-    HiOutlineLocationMarker,
     HiPhone,
     HiUser,
 } from "react-icons/hi";
-import { BiTransfer } from "react-icons/bi";
 import { BsBag } from "react-icons/bs";
 interface TopbarProps {
     [key: string]: any;
