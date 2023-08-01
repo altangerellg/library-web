@@ -51,8 +51,8 @@ const SideBar: FC<SideBarProps> = (props) => {
             </DropDown>
             <DropDown title="Формат">
                 <ul>
-                    <li className="mb-3">PDF</li>
-                    <li className="mb-3">EPUB</li>
+                    <li onClick={(e: any) => onChangeFilter({target: {name: "format",value: "PDF"}})} className="mb-3">PDF</li>
+                    <li onClick={(e:any)=> onChangeFilter({target: {name: "format", value: "EPUB"}})} className="mb-3">EPUB</li>
                 </ul>
             </DropDown>
         </div>
