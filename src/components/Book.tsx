@@ -31,7 +31,7 @@ const Book: FC<BookProps> = ({
                     <div className="relative lg:group-hover:-translate-y-10 ease-in duration-200 bottom-0 bg-white py-2 z-10">
                         <p className="uppercase text-accent h-auto font-light text-xs">EPUB</p>
                         <p className="text-primary mt-4 font-semibold hover:cursor-pointer truncate ...">{name}</p>
-                        <p className="hover:text-accent text-gray-500 text-sm mt-3 truncate ... cursor-pointer">{author.firstname}</p>
+                        <p className="hover:text-accent text-gray-500 text-sm mt-3 truncate ... cursor-pointer">{author ? author.firstname : "Unknown"}</p>
                         <p className="text-primary my-2 text-xs font-light ">{loves} хүнд таалагдсан</p>
                     </div>
                     <div className="flex relative lg:-mt-8 justify-start items-center lg:absolute lg:bottom-5 lg:z-0 ">
@@ -57,7 +57,7 @@ const Book: FC<BookProps> = ({
                 <div className=" flex justify-center flex-col relative grow bg-white ml-5 py-2 z-10 md:w-1/2">
                     <p className="uppercase text-accent h-auto font-light text-xs">EPUB</p>
                     <p className="text-primary mt-2 text-lg font-semibold hover:cursor-pointer truncate ... w-full">{name}</p>
-                    <p className="hover:text-accent text-gray-500 mt-2 text-sm truncate ... cursor-pointer  ">{author}</p>
+                    <p className="hover:text-accent text-gray-500 mt-2 text-sm truncate ... cursor-pointer  ">{author? author.firstname : "Unknown"}</p>
                     <div className=" max-w-full mt-3">
                         <p className="text-xs flex flex-wrap">{description}</p>
                     </div>
