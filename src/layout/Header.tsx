@@ -7,7 +7,6 @@ import { useRouter } from "next/navigation";
 import React, { FC, useCallback, useEffect, useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { CgMenuLeftAlt } from "react-icons/cg";
-import { HiSearch } from "react-icons/hi";
 
 interface HeaderProps {
     [key: string]: any;
@@ -16,7 +15,7 @@ interface HeaderProps {
 const Header: FC = (props: HeaderProps) => {
     const [categories, setCategories] = useState<Array<ICategory>>([]);
     const [searchQuery, setSearchQuery] = useState<string>();
-    const { filter, onChangeFilter } = useFilter();
+    const {onChangeFilter } = useFilter();
     const router = useRouter();
     const onChangeQuery = (e: any) => {
         setSearchQuery(e.target.value);
@@ -24,9 +23,7 @@ const Header: FC = (props: HeaderProps) => {
 
     const onSubmitSearch = (e: any) => {
         e.preventDefault();
-        console.log(searchQuery);
         onChangeFilter({target: {name:"searchQuery", value: String(searchQuery)}})
-        console.log(filter);
         router.push("/search");
     };
 
@@ -73,13 +70,13 @@ const Header: FC = (props: HeaderProps) => {
                         className="flex justify-start items-center"
                     >
                         <input
-                            name="hehe"
+                            name="search"
                             className="grow outline-none bg-transparent"
                             placeholder="Хайх утгаа оруулна уу"
                             value={searchQuery}
                             onChange={onChangeQuery}
                         />
-                        <button type="submit">
+                        <button type="submit" className="flex justify-between items-center">
                             <AiOutlineSearch className="text-zinc-500 mx-2"/>
                         </button>
                     </form>
