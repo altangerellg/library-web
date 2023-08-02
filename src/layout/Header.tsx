@@ -1,10 +1,12 @@
 "use client";
+import useFilter from "@library/hooks/useFilter";
 import ICategory from "@library/types/ICategory";
 import axios from "axios";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React, { FC, useCallback, useEffect, useState } from "react";
+import { AiOutlineSearch } from "react-icons/ai";
 import { CgMenuLeftAlt } from "react-icons/cg";
-import { HiSearch } from "react-icons/hi";
 
 interface HeaderProps {
     [key: string]: any;
@@ -12,17 +14,26 @@ interface HeaderProps {
 
 const Header: FC = (props: HeaderProps) => {
     const [categories, setCategories] = useState<Array<ICategory>>([]);
+    const [searchQuery, setSearchQuery] = useState<string>();
+    const {onChangeFilter } = useFilter();
+    const router = useRouter();
+    const onChangeQuery = (e: any) => {
+        setSearchQuery(e.target.value);
+    };
+
+    const onSubmitSearch = (e: any) => {
+        e.preventDefault();
+        onChangeFilter({target: {name:"searchQuery", value: String(searchQuery)}})
+        router.push("/search");
+    };
 
     const fetchCategories = useCallback(async () => {
         try {
-            const response = await axios.post(
-                "/api/category/find?page=0&size=10000",
-                [
-                    {
-                        parent: null,
-                    },
-                ]
-            );
+            const response = await axios.post("/api/category/find?page=0&size=10000", [
+                {
+                    parent: null,
+                },
+            ]);
 
             setCategories(response.data.content);
         } catch (error) {}
@@ -35,13 +46,7 @@ const Header: FC = (props: HeaderProps) => {
         <div className="flex lg:px-12 px-0 py-8 border-b-[1px] shadow-sm">
             <div className="flex items-center justify-start mr-10">
                 <CgMenuLeftAlt className="text-4xl" />
-                <Image
-                    className="mx-10"
-                    alt="logo"
-                    src="/logo.png"
-                    width={80}
-                    height={26.3}
-                />
+                <Image className="mx-10" alt="logo" src="/logo.png" width={80} height={26.3} />
             </div>
             <div className="flex justify-start items-center">
                 <div className="mr-6">
@@ -57,11 +62,24 @@ const Header: FC = (props: HeaderProps) => {
             </div>
             <div className="flex grow justify-end items-center ">
                 <div className="flex justify-start items-center bg-zinc-100 p-2 ">
-                    <HiSearch className="text-zinc-500 mx-2" />
-                    <input
-                        className="grow outline-none bg-transparent"
-                        placeholder="Хайх утгаа оруулна уу"
-                    />
+                    <form
+                        onSubmit={(e: any) => {
+                            e.preventDefault();
+                            onSubmitSearch(e);
+                        }}
+                        className="flex justify-start items-center"
+                    >
+                        <input
+                            name="search"
+                            className="grow outline-none bg-transparent"
+                            placeholder="Хайх утгаа оруулна уу"
+                            value={searchQuery}
+                            onChange={onChangeQuery}
+                        />
+                        <button type="submit" className="flex justify-between items-center">
+                            <AiOutlineSearch className="text-zinc-500 mx-2"/>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
