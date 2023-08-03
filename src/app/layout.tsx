@@ -6,6 +6,8 @@ import Header from "@library/layout/Header";
 import Footer from "@library/layout/Footer";
 import Bottombar from "@library/layout/Bottombar";
 import { SearchProvider } from "@library/context/SearchContext";
+import { SessionProvider } from "@library/context/SessionContext";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
@@ -16,6 +18,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={inter.className}>
+                <SessionProvider>
                 <Topbar />
                 <SearchProvider>
                     <Header />
@@ -23,6 +26,7 @@ export default function RootLayout({
                 </SearchProvider>
                 <Footer />
                 <Bottombar/>
+                </SessionProvider>
             </body>
         </html>
     );

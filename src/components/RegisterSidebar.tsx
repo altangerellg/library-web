@@ -1,13 +1,12 @@
 import React, { FC, MouseEventHandler, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import LoginForm from "./LoginForm";
 
-interface LoginSidebarProps {
+interface RegisterSidebarProps {
     onHide: MouseEventHandler<HTMLDivElement>;
     toggleSidebar: (s: boolean) => void;
     [key: string]: any;
 }
-const Sidebar: FC<LoginSidebarProps> = ({ onHide, show,toggleSidebar, ...props }) => {
+const RegSidebar: FC<RegisterSidebarProps> = ({ onHide, show, ...props }) => {
     return (
         <AnimatePresence>
             {show && (
@@ -23,10 +22,9 @@ const Sidebar: FC<LoginSidebarProps> = ({ onHide, show,toggleSidebar, ...props }
                         initial={{ x: 300, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
                         exit={{ x: 300, opacity: 0 }}
-                        className="max-w-[600px] min-w-[300px] shadow-xl h-screen bg-white z-50 text-white items-center flex flex-col justify-center"
+                        className="max-w-[600px] min-w-[300px] shadow-xl h-screen bg-gray-100 z-50 text-white items-center flex flex-col justify-center"
                     >
-                        <p className="flex justify-center items-center font-bold text-3xl text-black ">Нэвтрэх</p>
-                        <LoginForm toggleSidebar={toggleSidebar}/>
+                        <p className="flex justify-center items-center font-bold text-3xl text-black ">Бүртгүүлэх</p>
                     </motion.div>
                 </motion.div>
             )}
@@ -34,4 +32,4 @@ const Sidebar: FC<LoginSidebarProps> = ({ onHide, show,toggleSidebar, ...props }
     );
 };
 
-export default Sidebar;
+export default RegSidebar;
