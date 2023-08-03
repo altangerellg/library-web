@@ -3,9 +3,11 @@ import React, { FC } from "react";
 import { motion } from "framer-motion";
 import { AiOutlineFolderAdd, AiOutlineHeart } from "react-icons/ai";
 import IconButton from "@library/components/IconButton";
+import Link from "next/link";
 interface BookProps extends IBook {}
 
 const Book: FC<BookProps> = ({
+    _id,
     name,
     author,
     publicationDate,
@@ -26,12 +28,12 @@ const Book: FC<BookProps> = ({
                 {...props}
             >
                 <div className="flex justify-center items-center w-full mt-2">
-                    <img alt={name} src={"/public/uploads/" + coverUrl} style={{ width: "150px" }} />
+                <Link href={`/books/${_id}`}><img alt={name} src={"/public/uploads/" + coverUrl} style={{ width: "150px" }} /></Link>
                 </div>
                 <div className="flex flex-col">
                     <div className="relative lg:group-hover:-translate-y-10 ease-in duration-200 bottom-0 bg-white py-2 z-10">
                         <p className="uppercase text-accent h-auto font-light text-xs">{format}</p>
-                        <p className="text-primary mt-4 font-semibold hover:cursor-pointer truncate ...">{name}</p>
+                        <Link href={`/books/${_id}`}><p className="text-primary mt-4 font-semibold hover:cursor-pointer truncate ...">{name}</p></Link>
                         <p className="hover:text-accent text-gray-500 text-sm mt-3 truncate ... cursor-pointer">{author ? author.firstname : "Unknown"}</p>
                         <p className="text-primary my-2 text-xs font-light ">{loves} хүнд таалагдсан</p>
                     </div>
@@ -53,7 +55,7 @@ const Book: FC<BookProps> = ({
                 {...props}
             >
                 <div className="flex justify-center items-center lg:w-2/6 my-2 md:w-1/4 w-full">
-                    <img alt={name} src={"/public/uploads/" + coverUrl} style={{ width: "150px" }} />
+                    <Link href={"/books/"+{_id}}><img alt={name} src={"/public/uploads/" + coverUrl} style={{ width: "150px" }} /></Link>
                 </div>
                 <div className=" flex justify-center flex-col relative grow bg-white ml-5 py-2 z-10 md:w-1/2">
                     <p className="uppercase text-accent h-auto font-light text-xs">{format}</p>
