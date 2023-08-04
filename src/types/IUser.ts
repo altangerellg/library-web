@@ -4,5 +4,6 @@ export default interface IUser {
     email: string;
     phone: string;
     gender: "F" | "M";
+    birthDate: string;
     [key: string]: any;
 }
