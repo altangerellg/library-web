@@ -45,11 +45,19 @@ const Header: FC = (props: HeaderProps) => {
     return (
         <div className="flex lg:px-12 px-0 py-8 border-b-[1px] shadow-sm">
             <div className="flex items-center justify-start mr-10">
-                <CgMenuLeftAlt className="text-4xl" />
-                <Image className="mx-10" alt="logo" src="/logo.png" width={80} height={26.3} />
+                <div>
+                    <CgMenuLeftAlt className="text-4xl" />
+                    </div>
+                <Image
+                    className="mr-5 ml-5"
+                    alt="logo"
+                    src="/logo.png"
+                    width={80}
+                    height={26.3}
+                />
             </div>
             <div className="flex justify-start items-center">
-                <div className="mr-6">
+                <div className="mr-6 ml-7">
                     <p>Нүүр хуудас</p>
                 </div>
                 {categories.map((category: ICategory, index: number) => {

@@ -7,6 +7,7 @@ import Footer from "@library/layout/Footer";
 import Bottombar from "@library/layout/Bottombar";
 import { SearchProvider } from "@library/context/SearchContext";
 import { usePathname } from "next/navigation";
+import { SessionProvider } from "@library/context/SessionContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -18,6 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     <div>{children}</div>
                 ) : (
                     <>
+                    <SessionProvider>
                         <Topbar />
                         <SearchProvider>
                             <Header />
@@ -25,6 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                         </SearchProvider>
                         <Footer />
                         <Bottombar />
+                        </SessionProvider>
                     </>
                 )}
             </body>
