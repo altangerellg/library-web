@@ -42,7 +42,7 @@ const Topbar: FC = (props: TopbarProps) => {
             <LoginSidebar
                 toggleSidebar={toggleSidebar}
                 onHide={(e) => {
-                    if (e.target.id === "modal-backdrop") setLoginSidebar((s) => !s);
+                    if ((e.target as HTMLInputElement).id === "modal-backdrop") setLoginSidebar((s) => !s);
                 }}
                 show={loginSidebar}
             />

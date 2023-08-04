@@ -6,12 +6,8 @@ import Header from "@library/layout/Header";
 import Footer from "@library/layout/Footer";
 import Bottombar from "@library/layout/Bottombar";
 import { SearchProvider } from "@library/context/SearchContext";
-<<<<<<< HEAD
-import { SessionProvider } from "@library/context/SessionContext";
-
-=======
 import { usePathname } from "next/navigation";
->>>>>>> 8e4abd48d508c1c82eceafdbaddbf7a9e1ea734a
+import { SessionProvider } from "@library/context/SessionContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -19,21 +15,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="en">
             <body className={inter.className}>
-<<<<<<< HEAD
-                <SessionProvider>
-                <Topbar />
-                <SearchProvider>
-                    <Header />
-                    {children}
-                </SearchProvider>
-                <Footer />
-                <Bottombar/>
-                </SessionProvider>
-=======
                 {pathname.includes("read") ? (
                     <div>{children}</div>
                 ) : (
                     <>
+                    <SessionProvider>
                         <Topbar />
                         <SearchProvider>
                             <Header />
@@ -41,9 +27,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                         </SearchProvider>
                         <Footer />
                         <Bottombar />
+                        </SessionProvider>
                     </>
                 )}
->>>>>>> 8e4abd48d508c1c82eceafdbaddbf7a9e1ea734a
             </body>
         </html>
     );
