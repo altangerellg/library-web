@@ -4,7 +4,7 @@ import LoginForm from "./LoginForm";
 
 interface LoginSidebarProps {
     onHide: MouseEventHandler<HTMLDivElement>;
-    toggleSidebar: (s: boolean) => void;
+    toggleSidebar: () => void;
     [key: string]: any;
 }
 const Sidebar: FC<LoginSidebarProps> = ({ onHide, show,toggleSidebar, ...props }) => {
