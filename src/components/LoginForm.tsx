@@ -21,7 +21,6 @@ const LoginForm: FC<LoginFormProps> = ({ toggleSidebar, ...props }) => {
             localStorage.setItem("data", JSON.stringify(response.data));
             setUser(response.data);
             toggleSidebar();
-            router.push("/books");
         } catch (error) {
             console.log(error);
         }

@@ -14,7 +14,17 @@ interface TopbarProps {
 const Topbar: FC = (props: TopbarProps) => {
     const [loginSidebar, setLoginSidebar] = useState(false);
     const router = useRouter();
-    const { user } = useSession();
+    const { user, setUser } = useSession();
+    const [clicked, setClicked] = useState(false);
+    const onClickProfile = () =>{
+        console.log(clicked);
+        
+        setClicked(!clicked)
+    }
+    const logout = () =>{
+        localStorage.removeItem("data");
+        setUser(undefined)
+    };
     const toggleSidebar = () => {
         setLoginSidebar((s) => !s);
     };
@@ -29,11 +39,17 @@ const Topbar: FC = (props: TopbarProps) => {
                 </div>
             </div>
             <div className="w-[50%] flex justify-end items-center">
-                {/* <HiOutlineLocationMarker className="mr-2 text-xl" />
-                <BiTransfer className="mr-2 text-xl" />
-                <HiHeart className="mr-2 text-xl" /> */}
                 {user?.lastname ? (
-                    user.lastname
+                    <div className="relative bg-white w-auto">
+                        <div className="relative cursor-pointer px-3" onClick={onClickProfile}>
+                            {user.firstname + ". " + user.lastname}
+                        </div>
+                        {clicked?
+                        <div className="w-full absolute top-5 border border-t-0 right-0 mt-2 flex-col px-3 flex bg-white z-10">
+                            <p className="flex justify-end cursor-pointer" onClick={()=>router.push("/profile")}>Profile</p>
+                            <p className="flex justify-end cursor-pointer" onClick={logout}>Logout</p>
+                            </div>:<></>}
+                    </div>
                 ) : (
                     <HiUser className="mr-2 text-xl cursor-pointer" onClick={toggleSidebar} />
                 )}
