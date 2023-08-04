@@ -5,11 +5,15 @@ import BookInfo from "@library/components/BookInfo";
 import IBook from "@library/types/IBook";
 import React, { FC, useState, useEffect } from "react"
 import axios from "axios";
-interface BookProps extends IBook{}
+interface BookPageProps{
+    params: {
+        bookId: string;
+    }
+}
  
-const Book: FC<BookProps> = ({params: {bookId}}) => {
-     const [book,setBook] = useState<IBook>({})
-     const fetchBook = async (values: any) => {
+const BookPage: FC<BookPageProps> = ({params: {bookId}}) => {
+     const [book,setBook] = useState<IBook>({_id:"",isbn:"",publicationDate:""})
+     const fetchBook = async () => {
         try {
             const response = await axios.get("/api/book/find/"+bookId);
             setBook(response.data);
@@ -17,7 +21,7 @@ const Book: FC<BookProps> = ({params: {bookId}}) => {
         [];
     };
     useEffect(() => {
-        fetchBook({});
+        fetchBook();
         //eslint-disable-next-line
     }, [bookId]);
     return ( 
@@ -33,4 +37,4 @@ const Book: FC<BookProps> = ({params: {bookId}}) => {
      );
 }
  
-export default Book;
+export default BookPage;
