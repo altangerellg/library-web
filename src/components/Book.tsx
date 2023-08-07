@@ -34,7 +34,7 @@ const Book: FC<BookProps> = ({
                     <div className="relative lg:group-hover:-translate-y-10 ease-in duration-200 bottom-0 bg-white py-2 z-20">
                         <p className="uppercase text-accent h-auto font-light text-xs">{format}</p>
                         <Link href={`/books/${_id}`}><p className="text-primary mt-4 font-semibold hover:cursor-pointer truncate ...">{name}</p></Link>
-                        <p className="hover:text-accent text-gray-500 text-sm mt-3 truncate ... cursor-pointer">{author ? author.firstname : "Unknown"}</p>
+                        <p className="hover:text-accent text-gray-500 text-sm mt-3 truncate ... cursor-pointer">{author ? author.firstname + " " + author.lastname : "Unknown"}</p>
                         <p className="text-primary my-2 text-xs font-light ">{loves} хүнд таалагдсан</p>
                     </div>
                     <div className="flex relative lg:-mt-8 justify-start items-center lg:absolute lg:bottom-5 lg:z-0 ">
@@ -48,19 +48,37 @@ const Book: FC<BookProps> = ({
                 </div>
             </div>
         );
-    } else {
+    } 
+    else if(type === "mini"){
+        return (
+            <div
+                className="relative group flex justify-between p-4 m-0 flex-row md:flex-row"
+                {...props}
+            >
+                <div className="flex justify-center items-center lg:w-2/6 my-2 md:w-1/4 w-1/4">
+                    <Link href={`/books/${_id}`}><img alt={name} src={"/public/uploads/" + coverUrl} style={{ width: "50px" }} /></Link>
+                </div>
+                <div className=" flex justify-center flex-col relative grow bg-white ml-5 py-2 z-10 md:w-1/2 w-3/4">
+                    <p className="hover:text-accent text-primary mt-2 text-md font-semibold cursor-pointer truncate ... w-full">{name}</p>
+                    <p className="text-gray-500 mt-1 text-xs truncate ... cursor-pointer  ">{author? author.firstname + " " + author.lastname : "Unknown"}</p>
+                </div>
+            </div>
+        );
+    }
+
+    else {
         return (
             <div
                 className="relative group flex justify-between border p-4 m-0 hover:shadow-lg hover:border-gray-900 flex-col md:flex-row"
                 {...props}
             >
                 <div className="flex justify-center items-center lg:w-2/6 my-2 md:w-1/4 w-full">
-                    <Link href={"/books/"+{_id}}><img alt={name} src={"/public/uploads/" + coverUrl} style={{ width: "150px" }} /></Link>
+                    <Link href={`/books/${_id}`}><img alt={name} src={"/public/uploads/" + coverUrl} style={{ width: "150px" }} /></Link>
                 </div>
                 <div className=" flex justify-center flex-col relative grow bg-white ml-5 py-2 z-10 md:w-1/2">
-                    <p className="uppercase text-accent h-auto font-light text-xs">EPUB</p>
+                    <p className="uppercase text-accent h-auto font-light text-xs">{format}</p>
                     <p className="text-primary mt-2 text-lg font-semibold hover:cursor-pointer truncate ... w-full">{name}</p>
-                    <p className="hover:text-accent text-gray-500 mt-2 text-sm truncate ... cursor-pointer  ">{author? author.firstname : "Unknown"}</p>
+                    <p className="hover:text-accent text-gray-500 mt-2 text-sm truncate ... cursor-pointer  ">{author? author.firstname + " " + author.lastname : "Unknown"}</p>
                     <div className=" max-w-full mt-3">
                         <p className="text-xs flex flex-wrap">{description}</p>
                     </div>
