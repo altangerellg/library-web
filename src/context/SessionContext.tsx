@@ -12,10 +12,10 @@ export const SessionProvider: FC<any> = ({ children }) => {
     useEffect(() => {
         if (!Boolean(user?.firstname)) {
             let tmp = localStorage.getItem("data");
-            if(tmp){ setUser(JSON.parse(tmp))
-            console.log(user)}
+            if (tmp) {
+                setUser(JSON.parse(tmp));
+            }
         } else {
-            console.log("");
         }
     }, [user]);
     return <SessionContext.Provider value={{ user, setUser }}>{children}</SessionContext.Provider>;

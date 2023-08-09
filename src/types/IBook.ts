@@ -6,5 +6,7 @@ export default interface IBook {
     description?: string;
     isbn: string;
     publicationDate: string;
+    loves:number,
+    lovedUsers:Array<string>,
     [key: string]: any;
 }

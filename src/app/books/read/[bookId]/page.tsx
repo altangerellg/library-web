@@ -9,7 +9,7 @@ interface BookReaderProps {
     }
 }
 const BookReader: FC<BookReaderProps> = ({params: {bookId}}) => {
-    const [book, setBook] = useState<IBook>({_id:"",isbn:"",publicationDate:""});
+    const [book, setBook] = useState<IBook>();
     const fetchBook = async () => {
         try {
             const response = await axios.get("/api/book/find/" + bookId);
