@@ -29,7 +29,6 @@ const BookPage: FC<BookPageProps> = ({ params: { bookId } }) => {
             const response = await axios.get("/api/book/find/" + bookId);
             setBook(response.data);
             setCategories(response.data.categories);
-            console.log(categories);
         } catch (error) {
         } finally {
             setLoading(false);

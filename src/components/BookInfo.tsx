@@ -24,7 +24,6 @@ const BookInfo: FC<BookInfoProps> = ({
     const [loved, setLoved] = useState<boolean>(false);
     const { user } = useSession();
     const isLoved = () => {
-        console.log(lovedUsers?.includes(user._id))
         if (lovedUsers?.includes(user._id)){ 
             setLoved(true)
         }
@@ -33,7 +32,6 @@ const BookInfo: FC<BookInfoProps> = ({
         isLoved();
         //eslint-disable-next-line
     }, []);
-    {console.log("lloooved",loved)}
     return (
         <div className="flex w-full flex-col p-6 lg:flex-row">
             <div className="flex justify-center items-center w-full lg:w-5/12 h-auto lg:px-5">

@@ -11,7 +11,6 @@ interface LoveProps {
 const Love: FC<LoveProps> = ({ bookId, currLove, isLoved }) => {
     const [loved, setLoved] = useState<boolean>(isLoved);
     const [loves, setLoves] = useState<number>(currLove);
-    console.log("aa",loved)
     const { user } = useSession();
     const fetchLoves = async () => {
         try {
@@ -45,7 +44,6 @@ const Love: FC<LoveProps> = ({ bookId, currLove, isLoved }) => {
     };
     useEffect(() => {
         setLoved(isLoved)
-        console.log("loved",loved)
         //eslint-disable-next-line
     }, [isLoved]);
 

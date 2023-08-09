@@ -29,7 +29,6 @@ const BookReview: FC<BookReviewProps> = ({
             reviewContent: review
         }
         try{
-            console.log(values)
             setIsLoading(true)
             if(review){
                 const res = await axios.post("/api/review",values,{

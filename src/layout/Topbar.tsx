@@ -17,7 +17,6 @@ const Topbar: FC = (props: TopbarProps) => {
     const { user, setUser } = useSession();
     const [clicked, setClicked] = useState(false);
     const onClickProfile = () =>{
-        console.log(clicked);
         
         setClicked(!clicked)
     }
