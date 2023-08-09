@@ -15,7 +15,6 @@ export const SearchProvider: FC<any> = ({ children, ...props }) => {
     };
 
     useEffect(() => {
-        console.log(filter);
     }, [filter]);
 
     return <SearchContext.Provider value={{ filter, onChangeFilter }}>{children}</SearchContext.Provider>;
