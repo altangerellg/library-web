@@ -8,6 +8,7 @@ import Bottombar from "@library/layout/Bottombar";
 import { SearchProvider } from "@library/context/SearchContext";
 import { usePathname } from "next/navigation";
 import { SessionProvider } from "@library/context/SessionContext";
+import "@library/utils/interceptor";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

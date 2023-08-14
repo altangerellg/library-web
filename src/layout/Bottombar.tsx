@@ -6,11 +6,11 @@ interface BottombarProps {
 }
 
 const Bottombar: FC<BottombarProps> = props => {
-    return <div className="lg:flex hidden w-fix py-12 px-12 justify-between items-center border-t-[1px]">
-        <div className="flex justify-start items-center">
+    return <div className="lg:flex py-12 px-12 lg:justify-between items-center border-t-[1px] justify-center">
+        <div className="flex justify-center items-center">
             <p>2023 Book Store. All rights reserved</p>
         </div>
-        <div className="flex justify-end items-center">
+        <div className="flex justify-center items-center mt-5 lg:mt-0">
             <Image
                 className="mx-3"
                 alt="MasterCard"
