@@ -17,23 +17,13 @@ const Love: FC<LoveProps> = ({ bookId, currLove, isLoved }) => {
             if (!loved) {
                 const res = await axios.put(
                     `/api/book/love/${bookId}`,
-                    {},
-                    {
-                        headers: {
-                            Authorization: `Bearer ${user.token}`,
-                        },
-                    }
+                    {}
                 );
                 setLoves(res.data.loves);
             } else {
                 const res = await axios.put(
                     `/api/book/unlove/${bookId}`,
                     {},
-                    {
-                        headers: {
-                            Authorization: `Bearer ${user.token}`,
-                        },
-                    }
                 );
                 setLoves(res.data.loves);
             }

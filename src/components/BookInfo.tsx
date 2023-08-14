@@ -6,6 +6,9 @@ import { BsFacebook, BsLinkedin, BsTwitter } from "react-icons/bs";
 import { CiHeart } from "react-icons/ci";
 import Love from "./Love";
 import useSession from "@library/hooks/useSession";
+import UserCollectionList from "./UserCollectionList";
+import Book from "./Book";
+import Link from "next/link";
 interface BookInfoProps extends IBook {}
 
 const BookInfo: FC<BookInfoProps> = ({
@@ -20,11 +23,12 @@ const BookInfo: FC<BookInfoProps> = ({
     lovedUsers,
     ...props
 }) => {
+    const book:IBook = {_id,name,author,publicationDate,coverUrl,loves,description,summary,lovedUsers,...props}
     const [currentUrl, setCurrentUrl] = useState<string>("");
     const [loved, setLoved] = useState<boolean>(false);
     const { user } = useSession();
     const isLoved = () => {
-        if (lovedUsers?.includes(user._id)){ 
+        if (lovedUsers?.includes(user?._id)){ 
             setLoved(true)
         }
     };
@@ -49,11 +53,8 @@ const BookInfo: FC<BookInfoProps> = ({
                     <div className="w-full mt-5 text-sm">{summary}</div>
                 </div>
                 <div className="flex flex-wrap mt-5">
-                    <button className="w-full bg-main text-lg font-light text-white py-4 lg:w-1/2">Унших</button>
-                    <button className="flex justify-center items-center w-full mt-8 md:w-1/2 lg:mt-0">
-                        <CiHeart className="text-2xl" />
-                        <p>Цуглуулганд нэмэх</p>
-                    </button>
+                    <Link href={`/books/read/${_id}`} className="w-full lg:w-1/2"><button className="w-full bg-main text-lg font-light text-white py-4">Унших</button></Link>
+                    <UserCollectionList book={book}/>
                     <div className="flex w-full mt-8 justify-center items-center md:w-1/2 lg:w-full">
                         <ul className="flex">
                             <li className="mx-3 text-2xl">

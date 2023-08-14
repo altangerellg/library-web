@@ -31,11 +31,7 @@ const BookReview: FC<BookReviewProps> = ({
         try{
             setIsLoading(true)
             if(review){
-                const res = await axios.post("/api/review",values,{
-                    headers:{
-                        Authorization: `Bearer ${user.token}`
-                    }
-                })
+                const res = await axios.post("/api/review",values)
                 onWriteReview(res.data.content)
                 setReview("")
             }
