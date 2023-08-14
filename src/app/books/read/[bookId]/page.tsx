@@ -4,11 +4,11 @@ import axios from "axios";
 import React, { FC, useState, useEffect } from "react";
 import { WebReader, ReaderProvider } from "steppe-web-reader";
 interface BookReaderProps {
-    params:{
+    params: {
         bookId: string;
-    }
+    };
 }
-const BookReader: FC<BookReaderProps> = ({params: {bookId}}) => {
+const BookReader: FC<BookReaderProps> = ({ params: { bookId } }) => {
     const [book, setBook] = useState<IBook>();
     const fetchBook = async () => {
         try {
@@ -23,9 +23,11 @@ const BookReader: FC<BookReaderProps> = ({params: {bookId}}) => {
     }, [bookId]);
     return (
         book && (
-            <ReaderProvider>
-                <WebReader baseUrl={"/public/uploads/" + book?.filePath} />;
-            </ReaderProvider>
+            <div className="relative">
+                <ReaderProvider>
+                    <WebReader baseUrl={"/public/uploads/" + book?.filePath} />;
+                </ReaderProvider>
+            </div>
         )
     );
 };

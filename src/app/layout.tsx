@@ -16,17 +16,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <html lang="en">
             <body className={inter.className}>
                 {pathname.includes("read") ? (
-                    <div>{children}</div>
+                    children
                 ) : (
                     <>
-                    <SessionProvider>
-                        <Topbar />
-                        <SearchProvider>
-                            <Header />
-                            {children}
-                        </SearchProvider>
-                        <Footer />
-                        <Bottombar />
+                        <SessionProvider>
+                            <Topbar />
+                            <SearchProvider>
+                                <Header />
+                                {children}
+                            </SearchProvider>
+                            <Footer />
+                            <Bottombar />
                         </SessionProvider>
                     </>
                 )}
