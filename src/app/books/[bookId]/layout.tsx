@@ -7,7 +7,8 @@ interface Props{
     }
 }
 export async function generateMetadata({params: {bookId}}:Props){
-    const res = await axios.get(`http://${process.env.BACKEND_URL}/api/book/find/${bookId}`);
+    //const res = await axios.get(`http://206.189.145.130/api/book/find/${bookId}`);
+    const res = await axios.get(`http://206.189.145.130/api/book/find/${bookId}`);
     const book:IBook = res.data;
     if(book){
         return{

@@ -29,15 +29,15 @@ const Topbar: FC = (props: TopbarProps) => {
     };
     useEffect(() => {}, [user]);
     return (
-        <div className="lg:flex hidden w-screen py-4 px-12 justify-between items-center border-b-[1px]">
+        <div className="lg:flex w-screen py-4  px-4 lg:px-12 justify-between items-center border-b-[1px]">
             <div className="w-[50%] flex justify-start items-center">
-                <p className="hover:text-accent cursor-pointer">Танд тусламж хэрэгтэй юу ?</p>
-                <div className="ml-4 flex items-center">
+                <p className="hover:text-accent cursor-pointer lg:flex hidden">Танд тусламж хэрэгтэй юу ?</p>
+                <div className="ml-4 flex items-center lg:flex hidden">
                     <HiPhone />
                     <p className="ml-2">+976 99119911</p>
                 </div>
             </div>
-            <div className="w-[50%] flex justify-end items-center">
+            <div className="flex justify-end items-center">
                 {user?.lastname ? (
                     <div className="relative bg-white w-auto">
                         <div className="relative cursor-pointer px-3" onClick={onClickProfile}>
