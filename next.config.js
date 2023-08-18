@@ -12,7 +12,7 @@ const nextConfig = {
         },
         // {
         //   source: "/api/:path*",
-        //   destination: `http://${process.env.BACKEND_URL}/api/:path*`,
+        //   destination: "http://127.0.0.1:5050/api/:path*",
         // },
         // {
         //   source: "/public/:path*",

@@ -4,8 +4,7 @@ import BookDescpription from "./BookDescription";
 import BookReview from "./BookReview";
 import IReview from "@library/types/IReview";
 import axios from "axios";
-interface BookDetailsProps extends IBook{
-} 
+interface BookDetailsProps extends IBook{} 
 const BookDetails: FC<BookDetailsProps> = ({_id,description}) => {
     const [clickedDetail,setClickedDetail] = useState("desc");
     const [reviews, setReviews] = useState<Array<IReview>>([]);

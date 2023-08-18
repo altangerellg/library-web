@@ -3,6 +3,7 @@ import useFilter from "@library/hooks/useFilter";
 import ICategory from "@library/types/ICategory";
 import axios from "axios";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { FC, useCallback, useEffect, useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
@@ -68,15 +69,15 @@ const Header: FC = (props: HeaderProps) => {
             }>
                 <FaPlus className="absolute top-5 left-5 rotate-45 lg:hidden" onClick={onClickMenu}/>
                 <div className="mr-6 ml-7 ">
-                    <p>Нүүр хуудас</p>
+                   <Link href={"/"}> <p>Нүүр хуудас</p></Link>
                 </div>
-                {categories.map((category: ICategory, index: number) => {
-                    return (
-                        <div className="mr-6" key={`category-${index}`}>
-                            <p>{category.name}</p>
-                        </div>
-                    );
-                })}
+                    {categories.map((category: ICategory, index: number) => {
+                        return (
+                            <div className="mr-6" key={`category-${index}`}>
+                                <button>{category.name}</button>
+                            </div>
+                        );
+                    })}
             </div>
             <div className="flex grow justify-end items-center ">
                 <div className="flex justify-start items-center bg-zinc-100 p-2 ">
