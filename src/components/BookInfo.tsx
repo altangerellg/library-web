@@ -48,7 +48,7 @@ const BookInfo: FC<BookInfoProps> = ({
                         <div className="flex">
                             <Love bookId={_id} currLove={loves} isLoved={loved} />
                         </div>
-                        <p>{author?.firstname + " " + author?.lastname}</p>
+                        <p>{author}</p>
                     </div>
                     <div className="w-full mt-5 text-sm">{summary}</div>
                 </div>
