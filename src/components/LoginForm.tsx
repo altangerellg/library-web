@@ -60,10 +60,12 @@ const LoginForm: FC<LoginFormProps> = ({ toggleSidebar, ...props }) => {
                 placeholder="Нууц үг"
                 type="password"
             />
+            {/* <button>
             <p className="text-gray-500 text-sm mb-3 -mt-3">Бүртгүүлэх</p>
+            </button> */}
             <Button loading={form.isSubmitting} type="submit">
                 Нэвтрэх
-            </Button>
+            </Button>      
         </form>
     );
 };

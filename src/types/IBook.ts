@@ -1,8 +1,8 @@
-import IAuthor from "@library/types/IAuthor";
+// import IAuthor from "@library/types/IAuthor";
 
 export default interface IBook {
     _id:string;
-    author?: IAuthor;
+    author?: string;
     description?: string;
     isbn: string;
     publicationDate: string;

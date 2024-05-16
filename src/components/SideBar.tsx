@@ -32,7 +32,7 @@ const SideBar: FC<SideBarProps> = (props) => {
                     })}
                 </ul>
             </DropDown>
-            <DropDown title="Зохиогч">
+            {/* <DropDown title="Зохиогч">
                 <ul>
                     {authors?.map((author: IAuthor, index: number) => {
                         return (
@@ -48,11 +48,11 @@ const SideBar: FC<SideBarProps> = (props) => {
                         );
                     })}
                 </ul>
-            </DropDown>
+            </DropDown> */}
             <DropDown title="Формат">
                 <ul>
                     <li onClick={(e: any) => onChangeFilter({target: {name: "format",value: "PDF"}})} className="mb-3">PDF</li>
-                    <li onClick={(e:any)=> onChangeFilter({target: {name: "format", value: "EPUB"}})} className="mb-3">EPUB</li>
+                    {/* <li onClick={(e:any)=> onChangeFilter({target: {name: "format", value: "EPUB"}})} className="mb-3">EPUB</li> */}
                 </ul>
             </DropDown>
         </div>

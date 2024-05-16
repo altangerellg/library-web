@@ -56,7 +56,7 @@ const CarouselItem: FC<CarouselItemProps> = ({author, name, coverUrl}) => {
             marginBottom: "15px",
           }}
         >
-          {author?.firstname + " " + author?.lastname}
+          {author}
         </div>
         </motion.div>
         <div>

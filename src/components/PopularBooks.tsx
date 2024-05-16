@@ -1,8 +1,6 @@
 import IBook from "@library/types/IBook";
 import Link from "next/link";
 import { FC, useEffect, useState } from "react";
-import IconButton from "./IconButton";
-import { AiOutlineFolderAdd, AiOutlineHeart } from "react-icons/ai";
 import axios from "axios";
 import Book from "./Book";
 import {useRouter} from "next/navigation"
@@ -12,14 +10,14 @@ interface PopularBooksProps{}
 const PopularBooks: FC<PopularBooksProps> = () => {
     const [books, setBooks] = useState<Array<IBook>>([]);
     const router = useRouter();
-    const [page, setPage] = useState<number>(1);
+    const [page, setPage] = useState<number>(0);
     const [size, setSize] = useState<number>(6);
     const [totalPage, setTotalPage] = useState<number>(1);
 
     const fetchBooks = async (values: any) => {
         try {
             const response = await axios.post("/api/book/find", values, {
-                params: { page, size, order: "desc", sort: "loves" },
+                params: { page, size, order: "asc", sort: "loves" },
             });
             setBooks(response.data.content);
             setTotalPage(response.data.totalPage);
@@ -31,7 +29,6 @@ const PopularBooks: FC<PopularBooksProps> = () => {
 
     useEffect(() => {
         fetchBooks({});
-       // fetchNewBooks({});
         //eslint-disable-next-line
     }, [page, size]);
 

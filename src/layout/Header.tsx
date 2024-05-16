@@ -1,4 +1,5 @@
 "use client";
+import HeaderCats from "@library/components/HeaderCat";
 import useFilter from "@library/hooks/useFilter";
 import ICategory from "@library/types/ICategory";
 import axios from "axios";
@@ -58,7 +59,7 @@ const Header: FC = (props: HeaderProps) => {
                 <Image
                     className="mr-5 ml-5"
                     alt="logo"
-                    src="/logo.png"
+                    src="/eit.png"
                     width={80}
                     height={26.3}
                 />
@@ -69,7 +70,7 @@ const Header: FC = (props: HeaderProps) => {
             }>
                 <FaPlus className="absolute top-5 left-5 rotate-45 lg:hidden" onClick={onClickMenu}/>
                 <div className="mr-6 ml-7 ">
-                   <Link href={"/"}> <p>Нүүр хуудас</p></Link>
+                   <Link href={"/"}> <strong><p>Нүүр хуудас</p></strong></Link>
                 </div>
                     {categories.map((category: ICategory, index: number) => {
                         return (
@@ -79,6 +80,7 @@ const Header: FC = (props: HeaderProps) => {
                         );
                     })}
             </div>
+            {/* <HeaderCats /> */}
             <div className="flex grow justify-end items-center ">
                 <div className="flex justify-start items-center bg-zinc-100 p-2 ">
                     <form

@@ -1,32 +1,33 @@
 import ICategory from "@library/types/ICategory";
 import Link from "next/link";
 import { FC, useCallback, useEffect, useState } from "react";
-import IconButton from "./IconButton";
-import { AiOutlineFolderAdd, AiOutlineHeart } from "react-icons/ai";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import { motion } from "framer-motion";
-import useFilter from "@library/hooks/useFilter";
 interface FeaturedCategoriesProps {}
 
 const FeaturedCategories: FC<FeaturedCategoriesProps> = () => {
     const [categories, setCategories] = useState<Array<ICategory>>([]);
-    const fetchCategories = useCallback(async () => {
+    const [pages, setPages] = useState<number>(1)
+    const [sizes, setSizes] = useState<number>(4);
+    const [totalPage, setTotalPage] = useState<number>(1);
+    const router = useRouter();
+    const fetchCategories = async (values: any) => {
         try {
-            const response = await axios.post("/api/category/find?page=0&size=10000", 
-                {
-                    parent: null,
-                },
-            );
-
+            const response = await axios.post("/api/category/find", values, {
+                params: { pages, sizes, order: "asc", sort: "name" },
+            });
             setCategories(response.data.content);
-        } catch (error) {}
-    }, []);
+            setTotalPage(response.data.totalPage);
+        } catch (error) {
+            console.log(error);
+        }
+        [pages, sizes];
+    };
     useEffect(() => {
-        fetchCategories();
+       fetchCategories({});
         //eslint-disable-next-line
-    }, []);
-
+    }, [pages, sizes]);
     return (
         <div className="mx-10" style={{ marginTop: 80 }}>
             <header className="flex justify-between items-center" style={{ marginBottom: 40 }}>
