@@ -25,7 +25,7 @@ const ProfilePage: FC<ProfilePageProps> = ({ params }: { params: { userId: strin
         <div className="flex">
             <div className="w-[50%]">
                 <div className="flex items-center text-xl py-5 px-10 border">
-                    <BiSolidUser /> <p className="flex ml-2">Profile</p>
+                    <BiSolidUser /> <p className="flex ml-2"><button>Profile</button></p>
                 </div>
                 <div className="px-10 py-5 w-full">
                     <Hello />
@@ -40,7 +40,9 @@ const ProfilePage: FC<ProfilePageProps> = ({ params }: { params: { userId: strin
             <div className="w-[50%]">
                 <div className="flex items-center text-xl py-5 px-5 border">
                     <MdCollectionsBookmark />
-                    <p className="ml-2">My Collections</p>
+                    <p className="ml-2">
+                        <button>My Collections</button>
+                    </p>
                 </div>
                 <div>
                     <CollectionList/>

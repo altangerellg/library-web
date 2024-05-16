@@ -29,7 +29,7 @@ const HeaderCats: FC<HeaderCatsProps> = () => {
             <Link href={"/search"}>
             {categories.map((category: ICategory, index: number) => {
                         return (
-                            <div className="mr-6" key={`category-${index}`}>
+                            <div key={`category-${index}`}>
                                 <button>{category.name}</button>
                             </div>
                         );

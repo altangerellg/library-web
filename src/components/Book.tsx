@@ -26,6 +26,7 @@ const Book: FC<BookProps> = ({
             <div
                 className="relative group flex flex-col justify-between border p-4 m-0 hover:shadow-lg hover:border-gray-900"
                 {...props}
+                style={{ height: "400px"}}
             >
                 <div className="flex justify-center items-center w-full mt-2">
                 <Link href={`/books/${_id}`}><img alt={name} src={"/public/uploads/" + coverUrl} style={{ width: "150px" }} /></Link>
@@ -56,7 +57,7 @@ const Book: FC<BookProps> = ({
                 {...props}
             >
                 <div className="flex justify-center items-center lg:w-2/6 my-2 md:w-1/4 w-1/4">
-                    <Link href={`/books/${_id}`}><img alt={name} src={"/public/uploads/" + coverUrl} style={{ width: "50px" }} /></Link>
+                    <Link href={`/books/${_id}`}><img alt={name} src={"/public/uploads/" + coverUrl} style={{ width: "150px" }} /></Link>
                 </div>
                 <div className=" flex justify-center flex-col relative grow bg-white ml-5 py-2 z-10 md:w-1/2 w-3/4">
                     <p className="hover:text-accent text-primary mt-2 text-md font-semibold cursor-pointer truncate ... w-full">{name}</p>

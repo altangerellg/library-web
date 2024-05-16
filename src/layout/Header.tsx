@@ -56,29 +56,31 @@ const Header: FC = (props: HeaderProps) => {
                 <div>
                     <CgMenuLeftAlt className="text-4xl lg:hidden" onClick={onClickMenu}/>
                     </div>
+                    <Link href="/">
                 <Image
-                    className="mr-5 ml-5"
-                    alt="logo"
-                    src="/eit.png"
-                    width={80}
-                    height={26.3}
-                />
+                className="mr-5 ml-5"
+                alt="logo"
+                src="/eit.png"
+                width={80}
+                height={26.3}
+            />        
+            </Link>
             </div>
             <div className={menuClicked ?
             "flex absolute z-30 top-0 right-0 flex-col w-screen h-screen justify-between py-32 bg-white items-center":
             "hidden lg:flex"    
             }>
                 <FaPlus className="absolute top-5 left-5 rotate-45 lg:hidden" onClick={onClickMenu}/>
-                <div className="mr-6 ml-7 ">
+                {/* <div className="mr-6 ml-7 ">
                    <Link href={"/"}> <strong><p>Нүүр хуудас</p></strong></Link>
-                </div>
-                    {categories.map((category: ICategory, index: number) => {
+                </div> */}
+                    {/* {categories.map((category: ICategory, index: number) => {
                         return (
                             <div className="mr-6" key={`category-${index}`}>
                                 <button>{category.name}</button>
                             </div>
                         );
-                    })}
+                    })} */}
             </div>
             {/* <HeaderCats /> */}
             <div className="flex grow justify-end items-center ">

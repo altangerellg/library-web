@@ -39,7 +39,7 @@ const NewReleaseBooks: FC<NewReleaseBooksProps> = () =>  {
         <motion.h2 className="text-3xl font-bold my-4" style={{marginLeft: 40}}  initial={{ x: -100, opacity: 0 }} animate={{ x: 0, opacity: 1 }}>New Release</motion.h2>
         <Link href="/search"><motion.div initial={{y: -100, opacity:0}} animate={{y:0, opacity:1}}>View All...</motion.div></Link>
         </header>
-        <div className="grid grid-cols-2 lg:grid-cols-5" mt-20 style={{background: "white"}}>
+        <div className="grid grid-cols-2 lg:grid-cols-6" mt-20 style={{background: "white"}}>
         {books.map((e: IBook, index: number) => {
             return (
                 <motion.div
