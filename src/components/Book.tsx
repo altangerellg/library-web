@@ -60,7 +60,7 @@ const Book: FC<BookProps> = ({
                 </div>
                 <div className=" flex justify-center flex-col relative grow bg-white ml-5 py-2 z-10 md:w-1/2 w-3/4">
                     <p className="hover:text-accent text-primary mt-2 text-md font-semibold cursor-pointer truncate ... w-full">{name}</p>
-                    <p className="text-gray-500 mt-1 text-xs truncate ... cursor-pointer  ">{author? author.firstname + " " + author.lastname : "Unknown"}</p>
+                    <p className="text-gray-500 mt-1 text-xs truncate ... cursor-pointer  ">{author}</p>
                 </div>
             </div>
         );
@@ -78,7 +78,7 @@ const Book: FC<BookProps> = ({
                 <div className=" flex justify-center flex-col relative grow bg-white ml-5 py-2 z-10 md:w-1/2">
                     <p className="uppercase text-accent h-auto font-light text-xs">{format}</p>
                     <p className="text-primary mt-2 text-lg font-semibold hover:cursor-pointer truncate ... w-full">{name}</p>
-                    <p className="hover:text-accent text-gray-500 mt-2 text-sm truncate ... cursor-pointer  ">{author? author.firstname + " " + author.lastname : "Unknown"}</p>
+                    <p className="hover:text-accent text-gray-500 mt-2 text-sm truncate ... cursor-pointer  ">{author}</p>
                     <div className=" max-w-full mt-3">
                         <p className="text-xs flex flex-wrap">{description}</p>
                     </div>
