@@ -58,7 +58,7 @@ const BookPage: FC<BookPageProps> = ({ params: { bookId } }) => {
         //eslint-disable-next-line
     }, [categories]);
     return (
-        <div className="grid grid-cols-2 lg:grid-cols-4">
+        <div className="flex w-screen flex-wrap">
             {loading ? (
                 <div className="flex flex-col justify-center items-center w-screen min-h-[400px]">
                     <ImSpinner3 className="animate-spin text-2xl" />
