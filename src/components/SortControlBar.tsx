@@ -35,9 +35,9 @@ const SortControlBar: FC<SortControlBarProps> = ({books,page,size, onChangeSize,
                     <select name="bookNumber"
                         className="border-b border-gray-300 text-gray-900 text-sm rounded-sm block w-full p-2.5 outline-0"
                     onChange={onChangeSize}>
-                        <option value="10" >Эхний 10</option>
-                        <option value="20">Эхний 20</option>
-                        <option value="40">Эхний 40</option>
+                        <option value="4" >Эхний 4</option>
+                        <option value="8">Эхний 8</option>
+                        <option value="16">Эхний 16</option>
                         <option value="all">Бүгд</option>
                     </select>
                 </form>

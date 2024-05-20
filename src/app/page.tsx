@@ -8,7 +8,7 @@ import Carousel from "@library/components/Carousel";
 export default function Home() {
     return (
         <div className="flex flex-col w-screen">
-            {/* <Carousel /> */}
+            <Carousel />
             {/* <FeaturedCategories /> */}
             <PopularBooks />
             <NewReleaseBooks />

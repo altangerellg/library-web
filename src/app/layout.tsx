@@ -1,5 +1,5 @@
 "use client";
-import Topbar from "@library/layout/Topbar";
+// import Topbar from "@library/layout/Topbar";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import Header from "@library/layout/Header";
@@ -21,7 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 ) : (
                     <>
                         <SessionProvider>
-                            <Topbar />
+                            {/* <Topbar /> */}
                             <SearchProvider>
                                 <Header />
                                 {children}

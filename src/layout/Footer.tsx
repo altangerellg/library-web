@@ -24,10 +24,10 @@ const Footer: FC<FooterProps> = (props) => {
     return (
         <div className="flex lg:px-12 px-0 py-8 justify-center flex-col lg:justify-between lg:flex-row">
             <div className="lg:w-1/2">
-                <Image className="" alt="logo" src="/logo.png" width={120} height={26.3} />
-                <p className="flex mt-6 justify-center lg:justify-start">1418 River Drive, Suite 35 Cottonhall, CA 9622 United States</p>
-                <p className="flex mt-6 justify-center lg:justify-start ">sale@bookstore.com</p>
-                <p className="flex mb-6 justify-center lg:justify-start">+976 99119911</p>
+                <Image className="" alt="logo" src="/eit.png" width={120} height={26.3} />
+                <p className="flex mt-6 justify-center lg:justify-start">Орхон аймаг, Баян-Өндөр сум, Шагдарын Отгонбилэгийн гудамж, “Эрдэнэт цогцолбор” дээд сургууль</p>
+                <p className="flex mt-6 justify-center lg:justify-start "> techinst@erdenetmc.mn</p>
+                <p className="flex mb-6 justify-center lg:justify-start">+976 75773415</p>
                 <div className="flex justify-center items-center lg:justify-start">
                     <AiOutlineInstagram className="mr-5 text-2xl" />
                     <BiLogoFacebook className="mr-5 text-2xl" />

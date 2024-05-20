@@ -34,7 +34,7 @@ const Topbar: FC = (props: TopbarProps) => {
                 <p className="hover:text-accent cursor-pointer lg:flex hidden">Танд тусламж хэрэгтэй юу ?</p>
                 <div className="ml-4 flex items-center lg:flex hidden">
                     <HiPhone />
-                    <p className="ml-2">+976 99119911</p>
+                    <p className="ml-2">+976 75773415</p>
                 </div>
             </div>
             <div className="flex justify-end items-center">
