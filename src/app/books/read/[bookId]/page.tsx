@@ -3,6 +3,7 @@ import IBook from "@library/types/IBook";
 import axios from "axios";
 import React, { FC, useState, useEffect } from "react";
 import { WebReader, ReaderProvider } from "steppe-web-reader";
+import WebViewer from "@pdftron/webviewer";
 interface BookReaderProps {
     params: {
         bookId: string;
