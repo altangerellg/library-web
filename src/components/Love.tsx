@@ -40,9 +40,9 @@ const Love: FC<LoveProps> = ({ bookId, currLove, isLoved }) => {
     return (
         <>
             {loved ? (
-                <AiFillHeart className="text-2xl text-red-500" onClick={fetchLoves} />
+                <AiFillHeart className="text-2xl text-red-500 cursor-pointer" onClick={fetchLoves} />
             ) : (
-                <AiOutlineHeart className="text-2xl" onClick={fetchLoves} />
+                <AiOutlineHeart className="text-2xl cursor-pointer" onClick={fetchLoves} />
             )}
             <p className="ml-3">Таалагдсан: {loves} </p>
         </>

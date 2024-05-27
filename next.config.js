@@ -12,11 +12,11 @@ const nextConfig = {
         },
       //    {
       //   source: "/api/:path*",
-      //   destination: "http://127.0.0.1:5050/api/:path*",
+      //   destination: "http://127.0.0.1:80/api/:path*",
       // },
       // {
       //   source: "/public/:path*",
-      //   destination: "http://127.0.0.1:5050/public/:path*",
+      //   destination: "http://127.0.0.1:80/public/:path*",
       // },
       ];
     },

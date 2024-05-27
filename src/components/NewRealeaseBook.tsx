@@ -1,8 +1,6 @@
 import IBook from "@library/types/IBook";
 import Link from "next/link";
 import { FC, useEffect, useState } from "react";
-import IconButton from "./IconButton";
-import { AiOutlineFolderAdd, AiOutlineHeart } from "react-icons/ai";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import { motion } from "framer-motion";
@@ -11,26 +9,27 @@ interface NewReleaseBooksProps{}
 
 const NewReleaseBooks: FC<NewReleaseBooksProps> = () =>  {
     const [books, setBooks] = useState<Array<IBook>>([]);
-    const [pages, setPages] = useState<number>(0);
-    const [sizes, setSizes] = useState<number>(12);
-    const [totalPage, setTotalPage] = useState<number>(1);
     const router = useRouter();
+    const [page, setPage] = useState<number>(0);
+    const [size, setSize] = useState<number>(14);
+    const [totalPage, setTotalPage] = useState<number>(1);
+    
      const fetchNewBooks = async (values: any) => {
         try {
             const response = await axios.post("/api/book/find", values, {
-                params: { pages, sizes, order: "desc", sort: "publicationDate" },
+                params: { page, size, order: "desc", sort: "publicationDate" },
             });
             setBooks(response.data.content);
             setTotalPage(response.data.totalPage);
         } catch (error) {
             console.log(error);
         }
-        [pages, sizes];
+        [page, size];
     };
     useEffect(() => {
        fetchNewBooks({});
         //eslint-disable-next-line
-    }, [pages, sizes]);
+    }, [page, size]);
 
     return (
         <div style={{background: "#fff6f6", marginTop: 80}}>
@@ -39,7 +38,7 @@ const NewReleaseBooks: FC<NewReleaseBooksProps> = () =>  {
         <motion.h2 className="text-3xl font-bold my-4" style={{marginLeft: 40}}  initial={{ x: -100, opacity: 0 }} animate={{ x: 0, opacity: 1 }}>New Release</motion.h2>
         <Link href="/search"><motion.div initial={{y: -100, opacity:0}} animate={{y:0, opacity:1}}>View All...</motion.div></Link>
         </header>
-        <div className="grid grid-cols-2 lg:grid-cols-5" mt-20 style={{background: "white"}}>
+        <div className="grid grid-cols-2 lg:grid-cols-7"  style={{background: "white"}}>
         {books.map((e: IBook, index: number) => {
             return (
                 <motion.div

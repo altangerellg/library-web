@@ -7,6 +7,7 @@ import * as yup from "yup";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import useSession from "@library/hooks/useSession";
+import RegisterForm from "./RegisterForm";
 
 interface LoginFormProps {
     toggleSidebar: () => void;
@@ -60,9 +61,10 @@ const LoginForm: FC<LoginFormProps> = ({ toggleSidebar, ...props }) => {
                 placeholder="Нууц үг"
                 type="password"
             />
-            {/* <button>
+            <button>
             <p className="text-gray-500 text-sm mb-3 -mt-3">Бүртгүүлэх</p>
-            </button> */}
+            </button>
+            {/* <RegisterForm/> */}
             <Button loading={form.isSubmitting} type="submit">
                 Нэвтрэх
             </Button>      

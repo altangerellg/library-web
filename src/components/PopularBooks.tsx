@@ -11,13 +11,13 @@ const PopularBooks: FC<PopularBooksProps> = () => {
     const [books, setBooks] = useState<Array<IBook>>([]);
     const router = useRouter();
     const [page, setPage] = useState<number>(0);
-    const [size, setSize] = useState<number>(5);
+    const [size, setSize] = useState<number>(7);
     const [totalPage, setTotalPage] = useState<number>(1);
 
     const fetchBooks = async (values: any) => {
         try {
             const response = await axios.post("/api/book/find", values, {
-                params: { page, size, order: "asc", sort: "loves" },
+                params: { page, size, order: "desc", sort: "loves" },
             });
             setBooks(response.data.content);
             setTotalPage(response.data.totalPage);
@@ -34,14 +34,14 @@ const PopularBooks: FC<PopularBooksProps> = () => {
 
     return (
         <div>
-            <div className="mx-10" style={{marginTop: 10}}>
+            <div className="mx-12" style={{marginTop: 10}}> 
             <header className="flex justify-between items-center"  style={{marginBottom: 40}}>
             <motion.h2 className="text-3xl font-bold my-4" style={{marginLeft: 40}} initial={{ x: -100, opacity: 0 }} animate={{ x: 0, opacity: 1 }}>
                 Popular Books
             </motion.h2>
             <Link href="/search"><motion.div initial={{y: -100, opacity:0}} animate={{y:0, opacity:1}}>View All...</motion.div></Link>
             </header>
-            <div className="grid grid-cols-2 lg:grid-cols-5" >
+            <div className="grid grid-cols-2 lg:grid-cols-7" >
                 {books.map((e: IBook, index: number) => {
                     return (
                         <motion.div

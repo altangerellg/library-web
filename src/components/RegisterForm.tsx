@@ -46,9 +46,9 @@ const RegisterForm: FC<RegisterFormProps> = ({ ...props }) => {
 
     return (
         <div className="flex flex-col justify-center items-center min-h-screen">
-            {/* <p className="flex justify-center items-center font-bold text-3xl mt-6 text-black">
+            <p className="flex justify-center items-center font-bold text-3xl mt-6 text-black">
                 Бүртгүүлэх
-            </p> */}
+            </p>
         <form onSubmit={form.handleSubmit} className="flex flex-wrap w-full max-w-xl p-8">
 
             <Input
@@ -125,9 +125,9 @@ const RegisterForm: FC<RegisterFormProps> = ({ ...props }) => {
                 <option value="F">Эм</option>
             </select>
 
-            {/* <Button loading={form.isSubmitting} type="submit" className="text-white">
+            <Button loading={form.isSubmitting} type="submit" className="text-white">
                 Бүртгүүлэх
-            </Button> */}
+            </Button>
             <p className="text-gray-400 text-sm mb-3 mt-3" >Нэвтрэх...</p>
 
         </form>
